@@ -20,7 +20,7 @@ public enum App {
         settings: .settings(
             base: [
                 "DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER": "NO",
-                "TARGETED_DEVICE_FAMILY": "1",
+                "TARGETED_DEVICE_FAMILY": "2",
             ],
             debug: [
                 "PROVISIONING_PROFILE_SPECIFIER": "match Development \(Shared.bundleID)",

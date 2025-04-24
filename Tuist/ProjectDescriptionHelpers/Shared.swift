@@ -1,8 +1,8 @@
 import ProjectDescription
 
 public enum Shared {
-    public static let appName = "ProjectName"
-    public static let bundleID = "com.cocoatype.projectname"
+    public static let appName = "ColoringBook"
+    public static let bundleID = "com.cocoatype.ColoringBook"
     public static let settings: Settings = .settings(base: [
         "ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS": false,
         "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "Accent Color",
@@ -20,7 +20,7 @@ public enum Shared {
         "SWIFT_MAX_VERSION_1500": "5.0",
         "SWIFT_MAX_VERSION_1600": "6.0",
         "SWIFT_MAX_VERSION": "$(SWIFT_MAX_VERSION_$(XCODE_VERSION_MAJOR))",
-        "TARGETED_DEVICE_FAMILY": "1",
+        "TARGETED_DEVICE_FAMILY": "2",
     ], debug: [
         "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
     ], release: [
