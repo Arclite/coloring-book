@@ -3,9 +3,9 @@
 
 import Foundation
 
-struct RemoteAPIClient: APIClient {
+struct LocalAPIClient: APIClient {
     func requestPage(prompt: String) async throws -> Data {
-        guard let url = URL(string: "https://color.cocoatype.com/generate") else {
+        guard let url = URL(string: "http://localhost:8008/generate") else {
             throw RemoteAPIClientError.invalidURL
         }
 
@@ -17,3 +17,4 @@ struct RemoteAPIClient: APIClient {
         return data
     }
 }
+

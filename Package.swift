@@ -5,26 +5,6 @@ let platformProducts: [PackageDescription.Product]
 let platformDependencies: [PackageDescription.Package.Dependency]
 let platformTargets: [PackageDescription.Target]
 
-#if TUIST // Apple
-import ProjectDescription
-import ProjectDescriptionHelpers
-
-let packageSettings = PackageSettings(
-    productTypes: [
-        "TelemetryClient": .framework,
-    ],
-    baseSettings: Shared.settings,
-    targetSettings: [
-        :
-    ]
-)
-
-platformProducts = []
-platformDependencies = [
-    .package(url: "git@github.com:TelemetryDeck/SwiftClient.git", from: "2.6.0"),
-]
-platformTargets = []
-#else // Linux
 platformProducts = [
     .executable(
         name: "ColoringBookServer",
@@ -87,7 +67,6 @@ platformTargets = [
         sources: ["Tests"]
     ),
 ]
-#endif
 
 let package = Package(
     name: "ColoringBook",

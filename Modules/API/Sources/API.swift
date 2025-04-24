@@ -4,5 +4,11 @@
 import Foundation
 
 public enum API {
-    public static let client: any APIClient = RemoteAPIClient()
+    public static func client() -> any APIClient {
+        if ProcessInfo.processInfo.environment["USE_LOCALHOST"] != nil {
+            return LocalAPIClient()
+        } else {
+            return RemoteAPIClient()
+        }
+    }
 }

@@ -4,6 +4,7 @@ public enum API {
     public static let target = Target.moduleTarget(
         name: "API",
         dependencies: [
+            .target(Networking.target),
         ]
     )
 

@@ -5,14 +5,14 @@ public enum Logging {
         name: "Logging",
         destinations: [.iPhone, .appleWatch, .mac],
         dependencies: [
-            .external(name: "TelemetryClient"),
+            // .external(name: "TelemetryClient"),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
         name: "Logging",
         dependencies: [
-            .external(name: "TelemetryClient"),
+            // .external(name: "TelemetryClient"),
         ]
     )
 

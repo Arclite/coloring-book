@@ -12,10 +12,12 @@ let project = Project(
         API.target,
         ErrorHandling.target,
         Logging.target,
+        Networking.target,
         Root.target,
         // doubles
         ErrorHandling.doublesTarget,
         Logging.doublesTarget,
+        Networking.doublesTarget,
         // test helpers
         TestHelpers.target,
         TestHelpers.interfaceTarget,
@@ -23,6 +25,7 @@ let project = Project(
         API.testTarget,
         ErrorHandling.testTarget,
         Logging.testTarget,
+        Networking.testTarget,
         Root.testTarget,
     ],
     schemes: [
