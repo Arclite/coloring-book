@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftclient",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:TelemetryDeck/SwiftClient.git",
+      "state" : {
+        "revision" : "e1a5f4ea47888e7e40cb2d40bea43ed4f1f5bfff",
+        "version" : "2.6.1"
+      }
+    }
+  ],
+  "version" : 2
+}
