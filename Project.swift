@@ -9,6 +9,7 @@ let project = Project(
         // products
         App.target,
         // modules
+        API.target,
         ErrorHandling.target,
         Logging.target,
         Root.target,
@@ -19,6 +20,7 @@ let project = Project(
         TestHelpers.target,
         TestHelpers.interfaceTarget,
         // tests
+        API.testTarget,
         ErrorHandling.testTarget,
         Logging.testTarget,
         Root.testTarget,

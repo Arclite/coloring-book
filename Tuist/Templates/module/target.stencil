@@ -1,16 +1,14 @@
 import ProjectDescription
 
-public enum Root {
+public enum {{ name }} {
     public static let target = Target.moduleTarget(
-        name: "Root",
-        destinations: [.iPhone, .appleWatch, .mac],
+        name: "{{ name }}",
         dependencies: [
-            .target(API.target),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
-        name: "Root",
+        name: "{{ name }}",
         dependencies: [
         ]
     )
