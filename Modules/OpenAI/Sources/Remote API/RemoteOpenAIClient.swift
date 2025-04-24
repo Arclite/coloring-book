@@ -4,6 +4,10 @@
 import Foundation
 import Networking
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 struct RemoteOpenAIClient: OpenAIClient {
     private let urlLoader: any URLLoader
     init(
@@ -11,6 +15,18 @@ struct RemoteOpenAIClient: OpenAIClient {
     ) {
         self.urlLoader = urlLoader
     }
+
+    static let apiKey: String = {
+        guard let keyPath = ProcessInfo.processInfo.environment["OPENAI_API_KEY_FILE"] else {
+            fatalError("Missing environment variable OPENAI_API_KEY_FILE")
+        }
+
+        do {
+            return try String(contentsOfFile: keyPath, encoding: .utf8)
+        } catch {
+            fatalError("Unable to load OpenAI API key file")
+        }
+    }()
 
     func requestPage(prompt: String) async throws -> Data {
         guard let url = URL(string: "https://api.openai.com/v1/images/generations") else {
@@ -20,7 +36,7 @@ struct RemoteOpenAIClient: OpenAIClient {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(Constants.apiKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(Self.apiKey)", forHTTPHeaderField: "Authorization")
         request.httpBody = try JSONEncoder().encode(RemoteOpenAIClientRequest(prompt: PromptCreator().prompt(from: prompt)))
 
         let data = try await urlLoader.loadData(for: request)

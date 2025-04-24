@@ -35,7 +35,7 @@ struct RouterFactory: Sendable {
                 headers: [
                     .contentType: "image/png",
                 ],
-                body: ResponseBody(byteBuffer: ByteBuffer(data: data))
+                body: ResponseBody(data: data)
             )
         }
 

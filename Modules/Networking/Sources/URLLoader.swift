@@ -3,6 +3,10 @@
 
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public protocol URLLoader: Sendable {
     func loadData(for request: URLRequest) async throws -> Data
 }
