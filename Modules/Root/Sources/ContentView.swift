@@ -19,7 +19,7 @@ public struct ContentView: View {
             Button {
                 Task {
                     do {
-                        let data = try await API.client.requestPage(prompt: "pegasus ducks")
+                        let data = try await API.client.requestPage(prompt: "alicorn ducks")
                         let hex = data.map { String(format: "%02hhx", $0) }.joined()
                         image = UIImage(data: data).map(Image.init)
                         text = "Received image data!"
