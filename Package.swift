@@ -1,7 +1,11 @@
-// swift-tools-version: 5.9
-import PackageDescription
+// swift-tools-version: 6.0
+@preconcurrency import PackageDescription
 
-#if TUIST
+let platformProducts: [PackageDescription.Product]
+let platformDependencies: [PackageDescription.Package.Dependency]
+let platformTargets: [PackageDescription.Target]
+
+#if TUIST // Apple
 import ProjectDescription
 import ProjectDescriptionHelpers
 
@@ -14,11 +18,81 @@ let packageSettings = PackageSettings(
         :
     ]
 )
+
+platformProducts = []
+platformDependencies = [
+    .package(url: "git@github.com:TelemetryDeck/SwiftClient.git", from: "2.6.0"),
+]
+platformTargets = []
+#else // Linux
+platformProducts = [
+    .executable(
+        name: "ColoringBookServer",
+        targets: [
+            "ColoringBookServer",
+        ]
+    ),
+]
+platformDependencies = [
+    .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
+]
+platformTargets = [
+    .executableTarget(
+        name: "ColoringBookServer",
+        dependencies: [
+            .product(name: "Hummingbird", package: "hummingbird"),
+            .target(name: "Networking"),
+            .target(name: "OpenAI"),
+        ],
+        path: "Products/Server"
+    ),
+    .target(
+        name: "Networking",
+        dependencies: [
+        ],
+        path: "Modules/Networking",
+        sources: ["Sources"]
+    ),
+    .target(
+        name: "NetworkingDoubles",
+        dependencies: [
+            .target(name: "Networking"),
+        ],
+        path: "Modules/Networking",
+        sources: ["Doubles"]
+    ),
+    .testTarget(
+        name: "NetworkingTests", 
+        dependencies: [
+            .target(name: "Networking"),
+            .target(name: "NetworkingDoubles"),
+        ],
+        path: "Modules/Networking",
+        sources: ["Tests"]
+    ),
+    .target(
+        name: "OpenAI",
+        dependencies: [
+            .target(name: "Networking"),
+        ],
+        path: "Modules/OpenAI",
+        sources: ["Sources"]
+    ),
+    .testTarget(
+        name: "OpenAITests", 
+        dependencies: [
+            .target(name: "OpenAI"),
+        ],
+        path: "Modules/OpenAI",
+        sources: ["Tests"]
+    ),
+]
 #endif
 
 let package = Package(
-    name: "Dependencies",
-    dependencies: [
-        .package(url: "git@github.com:TelemetryDeck/SwiftClient.git", from: "2.6.0"),
-    ]
+    name: "ColoringBook",
+    platforms: [.macOS(.v15)],
+    products: platformProducts,
+    dependencies: platformDependencies,
+    targets: platformTargets
 )
