@@ -5,7 +5,7 @@ import Foundation
 
 struct RemoteAPIClient: APIClient {
     func requestPage(prompt: String) async throws -> Data {
-        guard let url = URL(string: "https://color.cocoatype.com/generate") else {
+        guard let url = URL(string: "https://polaris.cocoatype.com/generate") else {
             throw RemoteAPIClientError.invalidURL
         }
 
