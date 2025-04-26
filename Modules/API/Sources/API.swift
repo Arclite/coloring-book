@@ -2,13 +2,17 @@
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
 import Foundation
+import Networking
 
 public enum API {
-    public static func client() -> any APIClient {
-        if ProcessInfo.processInfo.environment["USE_LOCALHOST"] != nil {
-            return LocalAPIClient()
-        } else {
-            return RemoteAPIClient()
+    public static func client(urlLoader: any URLLoader) -> any APIClient {
+        switch ProcessInfo.processInfo.environment["API_TYPE"] {
+        case "local":
+            return LocalAPIClient(urlLoader: urlLoader)
+        case "preview":
+            return PreviewAPIClient()
+        default:
+            return RemoteAPIClient(urlLoader: urlLoader)
         }
     }
 }

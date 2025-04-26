@@ -48,7 +48,7 @@ let project = Project(
             runAction: .runAction(
                 arguments: .arguments(
                     environmentVariables: [
-                        :
+                        "API_TYPE": .environmentVariable(value: "preview", isEnabled: false),
                     ],
                     launchArguments: [
                         .launchArgument(name: "-com.apple.CoreData.SQLDebug 0", isEnabled: true),

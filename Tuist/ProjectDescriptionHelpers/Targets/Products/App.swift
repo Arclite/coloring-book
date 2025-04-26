@@ -15,6 +15,8 @@ public enum App {
         ]),
         entitlements: "Products/App/\(Shared.appName).entitlements",
         dependencies: [
+            .target(API.target),
+            .target(Networking.target),
             .target(Root.target),
         ],
         settings: .settings(

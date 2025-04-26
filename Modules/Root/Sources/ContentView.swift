@@ -7,10 +7,12 @@ import PromptView
 import SwiftUI
 
 public struct ContentView: View {
-    public init() {}
+    private let imageLoader: APIImageLoader
+    public init(apiClient: any APIClient) {
+        imageLoader = APIImageLoader(apiClient: apiClient)
+    }
 
     @State private var viewState: ViewState = .prompt
-    private let loader = APIImageLoader()
     public var body: some View {
         switch viewState {
         case .prompt:
@@ -18,7 +20,7 @@ public struct ContentView: View {
                 viewState = .loading
                 Task {
                     do {
-                        let image = try await loader.loadImage(prompt: prompt)
+                        let image = try await imageLoader.loadImage(prompt: prompt)
                         viewState = .drawing(image)
                     } catch {
                         viewState = .error(error)
@@ -43,5 +45,5 @@ public struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(apiClient: PreviewAPIClient())
 }

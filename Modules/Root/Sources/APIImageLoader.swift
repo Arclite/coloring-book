@@ -5,8 +5,13 @@ import API
 import SwiftUI
 
 struct APIImageLoader {
+    private let apiClient: APIClient
+    init(apiClient: APIClient) {
+        self.apiClient = apiClient
+    }
+
     func loadImage(prompt: String) async throws -> Image {
-        let data = try await API.client().requestPage(prompt: prompt)
+        let data = try await apiClient.requestPage(prompt: prompt)
         guard let image = UIImage(data: data).map(Image.init) else {
             throw APIImageLoaderError.cannotDecodeImageData
         }

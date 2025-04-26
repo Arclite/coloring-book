@@ -2,6 +2,5 @@
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
 enum RemoteAPIClientError: Error {
-    case invalidURL
     case missingImageData
 }
