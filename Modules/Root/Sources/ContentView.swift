@@ -2,40 +2,43 @@
 //  Copyright © 2024 Cocoatype, LLC. All rights reserved.
 
 import API
-import OSLog
+import DrawingView
+import PromptView
 import SwiftUI
 
 public struct ContentView: View {
     public init() {}
 
-    @State private var image: Image?
-    @State private var text = "What do you want to draw?"
-    @State private var prompt: String = ""
+    @State private var viewState: ViewState = .prompt
+    private let loader = APIImageLoader()
     public var body: some View {
-        VStack {
-            if let image {
-                Artboard(image: image)
-            } else {
-                TextField(text, text: $prompt)
-                Button {
-                    Task {
-                        do {
-                            let data = try await API.client().requestPage(prompt: prompt)
-                            let hex = data.map { String(format: "%02hhx", $0) }.joined()
-                            image = UIImage(data: data).map(Image.init)
-                            text = "Received image data!"
-                            os_log("received data: <%{public}@>", hex)
-                        } catch {
-                            text = String(describing: error)
-                            os_log("received error: %{public}@", text)
-                        }
+        switch viewState {
+        case .prompt:
+            PromptView { prompt in
+                viewState = .loading
+                Task {
+                    do {
+                        let image = try await loader.loadImage(prompt: prompt)
+                        viewState = .drawing(image)
+                    } catch {
+                        viewState = .error(error)
                     }
-                } label: {
-                    Text("Send Prompt")
                 }
             }
+        case .loading:
+            ProgressView()
+        case .drawing(let image):
+            Artboard(image: image)
+        case .error(let error):
+            Text(String(describing: error))
         }
-        .padding()
+    }
+
+    enum ViewState {
+        case prompt
+        case loading
+        case drawing(Image)
+        case error(Error)
     }
 }
 

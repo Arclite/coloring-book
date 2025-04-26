@@ -1,18 +1,14 @@
 import ProjectDescription
 
-public enum Root {
+public enum ToolPicker {
     public static let target = Target.moduleTarget(
-        name: "Root",
-        destinations: [.iPhone],
+        name: "ToolPicker",
         dependencies: [
-            .target(API.target),
-            .target(DrawingView.target),
-            .target(PromptView.target),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
-        name: "Root",
+        name: "ToolPicker",
         dependencies: [
         ]
     )

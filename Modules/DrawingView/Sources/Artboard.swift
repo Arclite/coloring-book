@@ -1,15 +1,16 @@
 //  Created by Geoff Pado on 4/24/25.
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
+import DrawingCanvas
 import SwiftUI
 
-struct Artboard: View {
+public struct Artboard: View {
     private let image: Image
-    init(image: Image) {
+    public init(image: Image) {
         self.image = image
     }
 
-    var body: some View {
+    public var body: some View {
         image.overlay {
             DrawingCanvas()
         }

@@ -1,11 +1,13 @@
 //  Created by Geoff Pado on 4/24/25.
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
-import PencilKit
+@preconcurrency import PencilKit
 import SwiftUI
 
-struct DrawingCanvas: UIViewRepresentable {
-    func makeUIView(context: Context) -> PKCanvasView {
+public struct DrawingCanvas: UIViewRepresentable {
+    public init() {}
+
+    public func makeUIView(context: Context) -> PKCanvasView {
         let canvasView = PKCanvasView()
         canvasView.backgroundColor = UIColor.white.withAlphaComponent(0.001)
         canvasView.overrideUserInterfaceStyle = .light
@@ -15,7 +17,7 @@ struct DrawingCanvas: UIViewRepresentable {
         return canvasView
     }
 
-    func updateUIView(_ canvasView: PKCanvasView, context: Context) {
+    public func updateUIView(_ canvasView: PKCanvasView, context: Context) {
     }
 }
 

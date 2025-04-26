@@ -1,18 +1,14 @@
 import ProjectDescription
 
-public enum Root {
+public enum DrawingCanvas {
     public static let target = Target.moduleTarget(
-        name: "Root",
-        destinations: [.iPhone],
+        name: "DrawingCanvas",
         dependencies: [
-            .target(API.target),
-            .target(DrawingView.target),
-            .target(PromptView.target),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
-        name: "Root",
+        name: "DrawingCanvas",
         dependencies: [
         ]
     )
