@@ -28,7 +28,7 @@ public struct ContentView: View {
         case .loading:
             ProgressView()
         case .drawing(let image):
-            Artboard(image: image)
+            DrawingView(image: image)
         case .error(let error):
             Text(String(describing: error))
         }

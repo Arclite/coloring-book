@@ -4,15 +4,17 @@
 import DrawingCanvas
 import SwiftUI
 
-public struct Artboard: View {
+struct Artboard: View {
     private let image: Image
-    public init(image: Image) {
+    private let color: Color
+    init(image: Image, color: Color) {
         self.image = image
+        self.color = color
     }
 
-    public var body: some View {
+    var body: some View {
         image.overlay {
-            DrawingCanvas()
+            DrawingCanvas(color: color)
         }
     }
 }

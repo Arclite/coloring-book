@@ -5,19 +5,29 @@
 import SwiftUI
 
 public struct DrawingCanvas: UIViewRepresentable {
-    public init() {}
+    private let color: Color
+    public init(color: Color) {
+        self.color = color
+    }
 
     public func makeUIView(context: Context) -> PKCanvasView {
         let canvasView = PKCanvasView()
         canvasView.backgroundColor = UIColor.white.withAlphaComponent(0.001)
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
-        canvasView.tool = PKInkingTool(ink: PKInk(.crayon, color: .purple), width: 10)
+        canvasView.tool = Self.tool(for: color, in: context)
         context.environment.toolPicker.setVisible(true, forFirstResponder: canvasView)
         return canvasView
     }
 
     public func updateUIView(_ canvasView: PKCanvasView, context: Context) {
+        canvasView.tool = Self.tool(for: color, in: context)
+    }
+
+    private static func tool(for color: Color, in context: Context) -> PKInkingTool {
+        let resolvedColor = color.resolve(in: context.environment)
+        let uiColor = UIColor(cgColor: resolvedColor.cgColor)
+        return PKInkingTool(ink: PKInk(.crayon, color: uiColor), width: 10)
     }
 }
 
