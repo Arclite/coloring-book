@@ -4,21 +4,50 @@
 import SwiftUI
 
 public struct ToolPicker: View {
-    @Binding private(set) var selectedColor: Color
-    public init(selectedColor: Binding<Color>) {
+    @Binding private(set) var selectedColor: SwiftUI.Color
+    private let layout: Layout
+    public init(selectedColor: Binding<SwiftUI.Color>, layout: Layout) {
         _selectedColor = selectedColor
+        self.layout = layout
     }
 
     public var body: some View {
-        VStack {
-            ColorButton(color: .red, selectedColor: $selectedColor)
-            ColorButton(color: .orange, selectedColor: $selectedColor)
-            ColorButton(color: .yellow, selectedColor: $selectedColor)
-            ColorButton(color: .green, selectedColor: $selectedColor)
-            ColorButton(color: .blue, selectedColor: $selectedColor)
-            ColorButton(color: .purple, selectedColor: $selectedColor)
-            ColorButton(color: .brown, selectedColor: $selectedColor)
-            ColorButton(color: .black, selectedColor: $selectedColor)
+        switch layout {
+        case .horizontal:
+            HStack(spacing: 0, content: colors)
+        case .vertical:
+            VStack(spacing: 0, content: colors)
         }
+    }
+
+    @ViewBuilder
+    private func colors() -> some View {
+        ForEach(Self.colors) {
+            ColorButton(color: $0.color, selectedColor: $selectedColor)
+        }
+    }
+
+    public static let colors: [Color] = [
+        .init(color: .red),
+        .init(color: .orange),
+        .init(color: .yellow),
+        .init(color: .green),
+        .init(color: .blue),
+        .init(color: .purple),
+        .init(color: .brown),
+        .init(color: .black),
+    ]
+
+    public enum Layout {
+        case horizontal, vertical
+    }
+
+    public struct Color: Identifiable {
+        let color: SwiftUI.Color
+        init(color: SwiftUI.Color) {
+            self.color = color
+        }
+
+        public var id: String { color.description }
     }
 }

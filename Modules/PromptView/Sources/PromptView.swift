@@ -12,13 +12,21 @@ public struct PromptView: View {
 
     @State private var prompt = ""
     public var body: some View {
-        VStack {
+        VStack(spacing: 20) {
+            Text("What would you like to color?")
+                .font(.title2)
             TextField("Prompt", text: $prompt)
+                .frame(maxWidth: 400)
+                .onSubmit { action(prompt) }
             Button {
                 action(prompt)
             } label: {
-                Text("Send Prompt")
+                Text("Make it!")
             }
-        }.padding()
+        }
     }
+}
+
+#Preview {
+    PromptView { _ in }
 }

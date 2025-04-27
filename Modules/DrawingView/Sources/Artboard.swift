@@ -13,8 +13,11 @@ struct Artboard: View {
     }
 
     var body: some View {
-        image.overlay {
-            DrawingCanvas(color: color)
-        }
+        image
+            .resizable()
+            .aspectRatio(1, contentMode: .fit)
+            .overlay {
+                DrawingCanvas(color: color)
+            }
     }
 }

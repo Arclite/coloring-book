@@ -10,11 +10,22 @@ public struct DrawingView: View {
         self.image = image
     }
 
+    static let padding: CGFloat = 44
+
     @State private var selectedColor: Color = .purple
     public var body: some View {
-        HStack {
-            ToolPicker(selectedColor: $selectedColor)
-            Artboard(image: image, color: selectedColor)
+        GeometryReader { proxy in
+            if proxy.size.height > proxy.size.width {
+                DrawingViewPortrait(image: image, selectedColor: $selectedColor, proxy: proxy)
+            } else {
+                DrawingViewLandscape(image: image, selectedColor: $selectedColor, proxy: proxy)
+            }
         }
+        .ignoresSafeArea()
     }
+}
+
+import API
+#Preview {
+    DrawingView(image: Asset.sample.swiftUIImage)
 }
