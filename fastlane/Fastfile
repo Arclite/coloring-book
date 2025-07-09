@@ -59,7 +59,7 @@ platform :ios do
 
   desc "Set up developer environment"
   lane :dev do
-    sync_code_signing
+    sync_code_signing(readonly: false)
   end
 
   desc "Regenerate all signing certs"
