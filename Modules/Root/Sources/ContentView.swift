@@ -3,14 +3,14 @@
 
 import SwiftUI
 
-import ICBAPI
+
 import ICBDrawingView
 import ICBPromptView
 
 public struct ContentView: View {
     private let imageLoader: APIImageLoader
-    public init(apiClient: any APIClient) {
-        imageLoader = APIImageLoader(apiClient: apiClient)
+    public init() {
+        imageLoader = APIImageLoader()
     }
 
     @State private var viewState: ViewState = .prompt
@@ -46,5 +46,5 @@ public struct ContentView: View {
 }
 
 #Preview {
-    ContentView(apiClient: PreviewAPIClient())
+    ContentView()
 }

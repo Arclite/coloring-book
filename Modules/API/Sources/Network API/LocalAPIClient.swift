@@ -3,16 +3,14 @@
 
 import Foundation
 
-import ICBNetworking
-
 struct LocalAPIClient: APIClient {
     private let networkClient: NetworkAPIClient
-    init(urlLoader: any URLLoader) {
+    init() {
         guard let url = URL(string: "http://localhost:8008/generate") else {
             fatalError("Invalid local API client URL")
         }
 
-        networkClient = NetworkAPIClient(generateURL: url, urlLoader: urlLoader)
+        networkClient = NetworkAPIClient(generateURL: url)
     }
 
     func requestPage(prompt: String) async throws -> Data {

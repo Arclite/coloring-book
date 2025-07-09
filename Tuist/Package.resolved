@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "factory",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:hmlongco/Factory.git",
+      "state" : {
+        "revision" : "ccc898f21992ebc130bc04cc197460a5ae230bcf",
+        "version" : "2.5.3"
+      }
+    },
+    {
       "identity" : "swiftclient",
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:TelemetryDeck/SwiftClient.git",

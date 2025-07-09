@@ -3,14 +3,15 @@
 
 import Foundation
 
+import FactoryKit
+
 import ICBNetworking
 
 struct NetworkAPIClient: APIClient {
     private let generateURL: URL
-    private let urlLoader: any URLLoader
-    init(generateURL: URL, urlLoader: any URLLoader) {
+    @Injected(\.urlLoader) private var urlLoader
+    init(generateURL: URL) {
         self.generateURL = generateURL
-        self.urlLoader = urlLoader
     }
 
     func requestPage(prompt: String) async throws -> Data {

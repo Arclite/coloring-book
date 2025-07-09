@@ -8,6 +8,7 @@ public enum Root {
             .target(API.target),
             .target(DrawingView.target),
             .target(PromptView.target),
+            .external(name: "FactoryKit"),
         ]
     )
 

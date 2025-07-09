@@ -3,13 +3,12 @@
 
 import SwiftUI
 
+import FactoryKit
+
 import ICBAPI
 
 struct APIImageLoader {
-    private let apiClient: APIClient
-    init(apiClient: APIClient) {
-        self.apiClient = apiClient
-    }
+    @Injected(\.apiClient) private var apiClient
 
     func loadImage(prompt: String) async throws -> Image {
         let data = try await apiClient.requestPage(prompt: prompt)

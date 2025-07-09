@@ -3,16 +3,14 @@
 
 import Foundation
 
-import ICBNetworking
-
 struct RemoteAPIClient: APIClient {
     private let networkClient: NetworkAPIClient
-    init(urlLoader: any URLLoader) {
+    init() {
         guard let url = URL(string: "https://polaris.cocoatype.com/generate") else {
             fatalError("Invalid remote API client URL")
         }
 
-        networkClient = NetworkAPIClient(generateURL: url, urlLoader: urlLoader)
+        networkClient = NetworkAPIClient(generateURL: url)
     }
 
     func requestPage(prompt: String) async throws -> Data {

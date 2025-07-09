@@ -4,6 +4,7 @@ public enum Networking {
     public static let target = Target.moduleTarget(
         name: "Networking",
         dependencies: [
+            .external(name: "FactoryKit"),
         ]
     )
 

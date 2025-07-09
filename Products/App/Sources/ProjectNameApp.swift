@@ -3,21 +3,13 @@
 
 import SwiftUI
 
-import ICBAPI
-import ICBNetworking
 import ICBRoot
 
 @main
 struct ProjectNameApp: App {
-    private let apiClient: any APIClient
-    init() {
-        let urlLoader = Networking.urlLoader
-        apiClient = API.client(urlLoader: urlLoader)
-    }
-
     var body: some Scene {
         WindowGroup {
-            ContentView(apiClient: apiClient)
+            ContentView()
         }
     }
 }
