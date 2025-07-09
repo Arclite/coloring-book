@@ -1,10 +1,11 @@
 //  Created by Geoff Pado on 12/25/24.
 //  Copyright © 2024 Cocoatype, LLC. All rights reserved.
 
-import API
-import DrawingView
-import PromptView
 import SwiftUI
+
+import ICBAPI
+import ICBDrawingView
+import ICBPromptView
 
 public struct ContentView: View {
     private let imageLoader: APIImageLoader

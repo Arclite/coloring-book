@@ -2,7 +2,8 @@
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
 import Foundation
-import Networking
+
+import ICBNetworking
 
 public enum API {
     public static func client(urlLoader: any URLLoader) -> any APIClient {

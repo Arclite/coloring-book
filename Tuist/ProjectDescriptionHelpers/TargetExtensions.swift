@@ -1,6 +1,7 @@
 import ProjectDescription
 
 extension Target {
+    static let prefix = "ICB"
     static func moduleTarget(
         name: String,
         destinations: Destinations = [.iPhone],
@@ -9,10 +10,10 @@ extension Target {
         dependencies: [TargetDependency] = []
     ) -> Target {
         Target.target(
-            name: name,
+            name: Self.prefix + name,
             destinations: destinations,
             product: .framework,
-            bundleId: "com.cocoatype.Barc.\(name)",
+            bundleId: "\(Shared.bundleID).\(name)",
             sources: ["Modules/\(name)/Sources/**"],
             resources: hasResources ? ["Modules/\(name)/Resources/**"] : nil,
             dependencies: dependencies,
@@ -34,13 +35,15 @@ extension Target {
         dependencies: [TargetDependency] = []
     ) -> Target {
         return Target.target(
-            name: "\(name)Tests",
+            name: Self.prefix + "\(name)Tests",
             destinations: [.iPhone],
             product: .unitTests,
-            bundleId: "com.cocoatype.Barc.\(name)Tests",
+            bundleId: "\(Shared.bundleID).\(name)Tests",
             sources: ["Modules/\(name)/Tests/**"],
             resources: hasResources ? ["Modules/\(name)/TestResources/**"] : nil,
-            dependencies: [.target(name: name)] + dependencies
+            dependencies: [
+                .target(name: Self.prefix + name),
+            ] + dependencies
         )
     }
 
@@ -49,13 +52,13 @@ extension Target {
         dependencies: [TargetDependency] = []
     ) -> Target {
         return Target.target(
-            name: "\(name)Doubles",
+            name: Self.prefix + "\(name)Doubles",
             destinations: [.iPhone],
             product: .framework,
-            bundleId: "com.cocoatype.Barc.\(name)Doubles",
+            bundleId: "\(Shared.bundleID).\(name)Doubles",
             sources: ["Modules/\(name)/Doubles/**"],
             dependencies: [
-                .target(name: name),
+                .target(name: Self.prefix + name),
                 .target(TestHelpers.interfaceTarget),
             ] + dependencies,
             settings: .settings(

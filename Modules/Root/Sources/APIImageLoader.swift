@@ -1,8 +1,9 @@
 //  Created by Geoff Pado on 4/25/25.
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
-import API
 import SwiftUI
+
+import ICBAPI
 
 struct APIImageLoader {
     private let apiClient: APIClient

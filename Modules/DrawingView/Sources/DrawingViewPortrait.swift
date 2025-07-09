@@ -2,7 +2,8 @@
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
 import SwiftUI
-import ToolPicker
+
+import ICBToolPicker
 
 struct DrawingViewPortrait: View {
     @Binding private var selectedColor: Color

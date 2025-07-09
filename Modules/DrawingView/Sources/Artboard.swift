@@ -1,8 +1,9 @@
 //  Created by Geoff Pado on 4/24/25.
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
-import DrawingCanvas
 import SwiftUI
+
+import ICBDrawingCanvas
 
 struct Artboard: View {
     private let image: Image

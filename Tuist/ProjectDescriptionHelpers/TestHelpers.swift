@@ -5,7 +5,7 @@ public enum TestHelpers {
         name: "TestHelpers",
         destinations: [.iPhone],
         product: .framework,
-        bundleId: "com.cocoatype.Highlighter.TestHelpers",
+        bundleId: "\(Shared.bundleID).TestHelpers",
         sources: ["Modules/TestHelpers/Sources/**"],
         headers: .headers(public: ["Modules/TestHelpers/Headers/**"]),
         dependencies: [
@@ -18,7 +18,7 @@ public enum TestHelpers {
         name: "TestHelpersInterface",
         destinations: [.iPhone],
         product: .framework,
-        bundleId: "com.cocoatype.Highlighter.TestHelpersInterface",
+        bundleId: "\(Shared.bundleID).TestHelpersInterface",
         sources: ["Modules/TestHelpers/Interface/**"],
         settings: .settings(
             base: [

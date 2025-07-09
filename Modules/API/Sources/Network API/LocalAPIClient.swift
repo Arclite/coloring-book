@@ -2,7 +2,8 @@
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
 import Foundation
-import Networking
+
+import ICBNetworking
 
 struct LocalAPIClient: APIClient {
     private let networkClient: NetworkAPIClient

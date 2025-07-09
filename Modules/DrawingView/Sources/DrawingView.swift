@@ -1,8 +1,9 @@
 //  Created by Geoff Pado on 4/25/25.
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
-import ToolPicker
 import SwiftUI
+
+import ICBToolPicker
 
 public struct DrawingView: View {
     private let image: Image
@@ -25,7 +26,7 @@ public struct DrawingView: View {
     }
 }
 
-import API
+import ICBAPI
 #Preview {
     DrawingView(image: Asset.sample.swiftUIImage)
 }

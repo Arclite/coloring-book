@@ -1,10 +1,11 @@
 //  Created by Geoff Pado on 12/25/24.
 //  Copyright © 2024 Cocoatype, LLC. All rights reserved.
 
-import API
-import Networking
-import Root
 import SwiftUI
+
+import ICBAPI
+import ICBNetworking
+import ICBRoot
 
 @main
 struct ProjectNameApp: App {
