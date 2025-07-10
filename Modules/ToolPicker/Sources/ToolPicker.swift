@@ -6,7 +6,10 @@ import SwiftUI
 public struct ToolPicker: View {
     @Binding private(set) var selectedColor: SwiftUI.Color
     private let layout: Layout
-    public init(selectedColor: Binding<SwiftUI.Color>, layout: Layout) {
+    public init(
+        selectedColor: Binding<SwiftUI.Color>,
+        layout: Layout
+    ) {
         _selectedColor = selectedColor
         self.layout = layout
     }
@@ -14,16 +17,19 @@ public struct ToolPicker: View {
     public var body: some View {
         switch layout {
         case .horizontal:
-            HStack(spacing: 0, content: colors)
+            HStack(spacing: 4, content: colors)
         case .vertical:
-            VStack(spacing: 0, content: colors)
+            VStack(spacing: 4, content: colors)
         }
     }
 
     @ViewBuilder
     private func colors() -> some View {
         ForEach(Self.colors) {
-            ColorButton(color: $0.color, selectedColor: $selectedColor)
+            ColorButton(
+                color: $0.color,
+                selectedColor: $selectedColor
+            )
         }
     }
 

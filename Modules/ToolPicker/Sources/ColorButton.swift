@@ -15,7 +15,22 @@ struct ColorButton: View {
         Button {
             selectedColor = color
         } label: {
-            color.clipShape(Circle())
+            if isSelected {
+                ZStack {
+                    Circle()
+                        .inset(by: 10)
+                        .fill(color)
+                    Circle()
+                        .stroke(color, lineWidth: 5)
+                }
+            } else {
+                Circle()
+                    .fill(color)
+            }
         }
+    }
+
+    var isSelected: Bool {
+        color == selectedColor
     }
 }
