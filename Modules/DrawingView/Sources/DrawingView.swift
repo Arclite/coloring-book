@@ -15,14 +15,19 @@ public struct DrawingView: View {
 
     @State private var selectedColor: Color = .purple
     public var body: some View {
-        GeometryReader { proxy in
-            if proxy.size.height > proxy.size.width {
-                DrawingViewPortrait(image: image, selectedColor: $selectedColor, proxy: proxy)
-            } else {
-                DrawingViewLandscape(image: image, selectedColor: $selectedColor, proxy: proxy)
+        VStack {
+            HStack {
+                CloseButton()
+                Spacer()
+            }.padding()
+            GeometryReader { proxy in
+                if proxy.size.height > proxy.size.width {
+                    DrawingViewPortrait(image: image, selectedColor: $selectedColor, proxy: proxy)
+                } else {
+                    DrawingViewLandscape(image: image, selectedColor: $selectedColor, proxy: proxy)
+                }
             }
         }
-        .ignoresSafeArea()
     }
 }
 
