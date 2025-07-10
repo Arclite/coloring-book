@@ -9,7 +9,7 @@ import ICBRoot
 struct ProjectNameApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }

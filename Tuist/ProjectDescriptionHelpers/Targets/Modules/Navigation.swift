@@ -1,20 +1,15 @@
 import ProjectDescription
 
-public enum Root {
+public enum Navigation {
     public static let target = Target.moduleTarget(
-        name: "Root",
-        destinations: [.iPhone],
+        name: "Navigation",
         dependencies: [
-            .target(API.target),
-            .target(DrawingView.target),
-            .target(Navigation.target),
-            .target(PromptView.target),
             .external(name: "FactoryKit"),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
-        name: "Root",
+        name: "Navigation",
         dependencies: [
         ]
     )

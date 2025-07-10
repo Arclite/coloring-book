@@ -3,28 +3,28 @@
 
 import SwiftUI
 
+import FactoryKit
 
 import ICBDrawingView
+import ICBNavigation
 import ICBPromptView
 
-public struct ContentView: View {
-    private let imageLoader: APIImageLoader
-    public init() {
-        imageLoader = APIImageLoader()
-    }
+public struct RootView: View {
+    private let imageLoader = APIImageLoader()
+    public init() {}
 
-    @State private var viewState: ViewState = .prompt
+    @Injected(\.navigator) private var navigator
     public var body: some View {
-        switch viewState {
+        switch navigator.currentRoute {
         case .prompt:
             PromptView { prompt in
-                viewState = .loading
+                navigator.currentRoute = .loading
                 Task {
                     do {
                         let image = try await imageLoader.loadImage(prompt: prompt)
-                        viewState = .drawing(image)
+                        navigator.currentRoute = .drawing(image)
                     } catch {
-                        viewState = .error(error)
+                        navigator.currentRoute = .error(error)
                     }
                 }
             }
@@ -46,5 +46,5 @@ public struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    RootView()
 }
