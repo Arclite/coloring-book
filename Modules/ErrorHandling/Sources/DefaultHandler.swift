@@ -1,13 +1,12 @@
 //  Created by Geoff Pado on 8/23/24.
 //  Copyright © 2024 Cocoatype, LLC. All rights reserved.
 
-import Logging
+import FactoryKit
+
+import ICBLogging
 
 struct DefaultHandler: ErrorHandler {
-    private let logger: any Logger
-    init(logger: any Logger = Logging.logger) {
-        self.logger = logger
-    }
+    @Injected(\.logger) private var logger
 
     private let eventFactory = EventFactory()
     func log(_ error: any Error, module: StaticString, type: StaticString) {

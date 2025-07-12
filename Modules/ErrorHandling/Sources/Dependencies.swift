@@ -4,7 +4,7 @@
 import FactoryKit
 
 public extension Container {
-    var logger: Factory<any Logger> {
+    var errorHandler: Factory<any ErrorHandler> {
         Factory(self) {
             DefaultHandler()
         }

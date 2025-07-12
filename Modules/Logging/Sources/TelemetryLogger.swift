@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import OSLog
+
 import TelemetryClient
 
 public struct TelemetryLogger: Logger {
