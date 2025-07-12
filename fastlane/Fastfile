@@ -5,7 +5,7 @@ platform :ios do
   lane :test do
     run_tests(
       scheme: "ColoringBook",
-      device: "iPad Air",
+      device: "iPad Air 13-inch (M2)",
     )
   end
 
