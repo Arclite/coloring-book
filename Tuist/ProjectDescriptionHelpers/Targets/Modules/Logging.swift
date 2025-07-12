@@ -13,6 +13,8 @@ public enum Logging {
     public static let testTarget = Target.moduleTestTarget(
         name: "Logging",
         dependencies: [
+            .external(name: "FactoryKit"),
+            .external(name: "FactoryTesting"),
             .external(name: "TelemetryClient"),
         ]
     )

@@ -10,7 +10,15 @@ let packageSettings = PackageSettings(
         "FactoryKit": .framework,
         "TelemetryClient": .framework,
     ],
-    baseSettings: Shared.settings
+    baseSettings: Shared.settings,
+    targetSettings: [
+        "FactoryKit": [
+            "SWIFT_VERSION": "6.0",
+        ],
+        "FactoryTesting": [
+            "SWIFT_VERSION": "6.0",
+        ],
+    ]
 )
 #endif
 
