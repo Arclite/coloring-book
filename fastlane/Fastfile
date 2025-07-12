@@ -7,7 +7,7 @@ platform :ios do
   end
 
   desc "Submit a new beta build to Apple TestFlight"
-  lane :beta do
+  lane :deploy do
     sync_code_signing(readonly: true)
 
     # Set the build number to the number of Git commits
@@ -36,7 +36,7 @@ platform :ios do
   end
 
   desc "Submit a new beta build to the public TestFlight beta"
-  lane :public do
+  lane :publish do
     yesterday = (Date.today - 1).strftime("%Y-%m-%d")
     today = Date.today.strftime("%Y-%m-%d")
 
@@ -66,12 +66,5 @@ platform :ios do
   lane :certs do
     sync_code_signing(readonly: false, type: "development")
     sync_code_signing(readonly: false, type: "appstore")
-  end
-end
-
-platform :mac do
-  desc "Set up developer environment"
-  lane :dev do
-    sync_code_signing
   end
 end

@@ -1,2 +1,42 @@
+[settings]
+jobs = 1
+
+[tasks.ci-deploy]
+depends = [
+  "gem-install",
+  "spm-install",
+  "generate --no-open",
+]
+run = "bundle exec fastlane deploy"
+
+[tasks.ci-publish]
+depends = [
+  "gem-install",
+]
+run = "bundle exec fastlane publish"
+
+[tasks.ci-test]
+depends = [
+  "gem-install",
+  "spm-install",
+  "generate --no-open",
+]
+run = "bundle exec fastlane test"
+
+[tasks.gem-install]
+run = [
+  "bundle config set --local path vendor/bundle",
+  "bundle install",
+]
+
+[tasks.generate]
+run = "tuist generate"
+
+[tasks.lint]
+run = "swiftlint lint"
+
+[tasks.spm-install]
+run = "tuist install"
+
 [tools]
 ruby = "3.3.4"
