@@ -4,7 +4,12 @@
 import TelemetryClient
 
 protocol TelemetrySending: Sendable {
-    func send(_ signalName: String, for clientUser: String?, floatValue: Double?, with additionalPayload: [String: String])
+    func send(
+        _ signalName: String,
+        for clientUser: String?,
+        floatValue: Double?,
+        with additionalPayload: [String: String]
+    )
 }
 
 extension TelemetryManager: TelemetrySending {}

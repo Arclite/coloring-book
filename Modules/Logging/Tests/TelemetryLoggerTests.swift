@@ -1,9 +1,12 @@
 //  Created by Geoff Pado on 5/5/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
-import TelemetryClient
+import Synchronization
 import XCTest
-@testable import Logging
+
+import TelemetryClient
+
+@testable import ICBLogging
 
 final class TelemetryLoggerTests: XCTestCase {
     func testBareInitInitializesTelemetryManager() {
@@ -28,11 +31,24 @@ final class TelemetryLoggerTests: XCTestCase {
 }
 
 private final class SpySender: TelemetrySending {
-    var name: String?
-    var info: [String: String]?
+    let _name: Mutex<String?> = Mutex(nil)
+    var name: String? {
+        get { _name.withLock { $0 } }
+        set { _name.withLock { $0 = newValue } }
+    }
+    let _info: Mutex<[String: String]?> = Mutex(nil)
+    var info: [String: String]? {
+        get { _info.withLock { $0 } }
+        set { _info.withLock { $0 = newValue } }
+    }
 
-    func send(_ signalType: TelemetryClient.TelemetrySignalType, for clientUser: String?, floatValue: Double?, with additionalPayload: [String: String]) {
-        name = signalType
+    func send(
+        _ signalName: String,
+        for clientUser: String?,
+        floatValue: Double?,
+        with additionalPayload: [String: String]
+    ) {
+        name = signalName
         info = additionalPayload
     }
 }

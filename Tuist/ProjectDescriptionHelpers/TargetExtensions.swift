@@ -43,7 +43,12 @@ extension Target {
             resources: hasResources ? ["Modules/\(name)/TestResources/**"] : nil,
             dependencies: [
                 .target(name: Self.prefix + name),
-            ] + dependencies
+            ] + dependencies,
+            settings: .settings(
+                base: [
+                    "SWIFT_VERSION": "$(SWIFT_MAX_VERSION)",
+                ]
+            )
         )
     }
 
@@ -64,6 +69,7 @@ extension Target {
             settings: .settings(
                 base: [
                     "DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER": false,
+                    "SWIFT_VERSION": "$(SWIFT_MAX_VERSION)",
                 ],
                 defaultSettings: .recommended(excluding: [
                     "CODE_SIGN_IDENTITY",

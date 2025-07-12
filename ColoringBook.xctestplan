@@ -1,0 +1,140 @@
+{
+  "configurations" : [
+    {
+      "id" : "AD22FA80-40B3-42BE-920C-9680247E8FEE",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "A77DBEB9081DE46108A3F91E",
+          "name" : "ICBAPI"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "52D44EDBCA9CE8136BDF41D4",
+          "name" : "ICBDrawingCanvas"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "5934011575E68A8F516C16E6",
+          "name" : "ICBDrawingView"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "B633D4FB89C6E6FDB333D888",
+          "name" : "ICBErrorHandling"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "0677576B8ECF46FC64B27984",
+          "name" : "ICBLogging"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "6D82612E9AC898D1660BF9B7",
+          "name" : "ICBNavigation"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "49858795CC45E7F8A9A4CA1A",
+          "name" : "ICBNetworking"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "15771DFCDD117CB21A32D384",
+          "name" : "ICBPromptView"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "E017BAE85EA1C55923AA5007",
+          "name" : "ICBRoot"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "93306F85B5D05EA0B986386C",
+          "name" : "ICBToolPicker"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "3D1153AFC0D31AEE7BF25EE1",
+        "name" : "ICBNetworkingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "6674AAC8A1E241CA2CD49185",
+        "name" : "ICBLoggingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "A6B4E01EAA4992DF92E875BB",
+        "name" : "ICBDrawingViewTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "72BFDAC443176835AC6021E6",
+        "name" : "ICBPromptViewTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "524E012276C5B26CA2CFECA5",
+        "name" : "ICBDrawingCanvasTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "372B4852006BE41EC2334EE8",
+        "name" : "ICBToolPickerTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "14B4C487063610009A0B314F",
+        "name" : "ICBErrorHandlingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "AF3049BD10A0E2699DC011D2",
+        "name" : "ICBRootTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "959CFACB299164ABD238EA81",
+        "name" : "ICBNavigationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "DDB3A3FCB637F19A41BD5A6F",
+        "name" : "ICBAPITests"
+      }
+    }
+  ],
+  "version" : 1
+}
