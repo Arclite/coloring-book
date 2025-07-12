@@ -35,6 +35,9 @@ run = "tuist generate"
 [tasks.lint]
 run = "swiftlint lint"
 
+[tasks.module]
+run = "tuist scaffold module --name"
+
 [tasks.spm-install]
 run = "tuist install"
 

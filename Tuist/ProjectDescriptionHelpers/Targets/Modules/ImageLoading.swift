@@ -1,15 +1,16 @@
 import ProjectDescription
 
-public enum PromptView {
+public enum ImageLoading {
     public static let target = Target.moduleTarget(
-        name: "PromptView",
+        name: "ImageLoading",
         dependencies: [
-            .target(ImageLoading.target),
+            .target(API.target),
+            .external(FactoryKit.target),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
-        name: "PromptView",
+        name: "ImageLoading",
         dependencies: [
         ]
     )
