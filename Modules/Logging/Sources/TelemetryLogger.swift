@@ -3,7 +3,7 @@
 
 import OSLog
 
-import TelemetryClient
+import TelemetryDeck
 
 public struct TelemetryLogger: Logger {
     public static func initializeTelemetry() {

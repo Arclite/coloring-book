@@ -5,17 +5,17 @@ public enum Logging {
         name: "Logging",
         destinations: [.iPhone, .appleWatch, .mac],
         dependencies: [
-            .external(name: "FactoryKit"),
-            .external(name: "TelemetryClient"),
+            .external(FactoryKit.target),
+            .external(TelemetryDeck.target),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
         name: "Logging",
         dependencies: [
-            .external(name: "FactoryKit"),
-            .external(name: "FactoryTesting"),
-            .external(name: "TelemetryClient"),
+            .external(FactoryKit.target),
+            .external(FactoryKit.testTarget),
+            .external(TelemetryDeck.target),
         ]
     )
 

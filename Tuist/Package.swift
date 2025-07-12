@@ -8,7 +8,7 @@ import ProjectDescriptionHelpers
 let packageSettings = PackageSettings(
     productTypes: [
         "FactoryKit": .framework,
-        "TelemetryClient": .framework,
+        "TelemetryDeck": .framework,
     ],
     baseSettings: Shared.settings,
     targetSettings: [

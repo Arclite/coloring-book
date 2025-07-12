@@ -9,7 +9,7 @@ public enum DrawingView {
             .target(DrawingCanvas.target),
             .target(Navigation.target),
             .target(ToolPicker.target),
-            .external(name: "FactoryKit"),
+            .external(FactoryKit.target),
         ]
     )
 

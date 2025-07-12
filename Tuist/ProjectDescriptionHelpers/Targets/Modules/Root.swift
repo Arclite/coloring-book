@@ -9,7 +9,7 @@ public enum Root {
             .target(DrawingView.target),
             .target(Navigation.target),
             .target(PromptView.target),
-            .external(name: "FactoryKit"),
+            .external(FactoryKit.target),
         ]
     )
 
