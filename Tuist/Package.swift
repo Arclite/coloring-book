@@ -8,9 +8,18 @@ import ProjectDescriptionHelpers
 let packageSettings = PackageSettings(
     productTypes: [
         "FactoryKit": .framework,
-        "TelemetryClient": .framework,
+        "TelemetryDeck": .framework,
+        "ViewInspector": .framework,
     ],
-    baseSettings: Shared.settings
+    baseSettings: Shared.settings,
+    targetSettings: [
+        "FactoryKit": [
+            "SWIFT_VERSION": "6.0",
+        ],
+        "FactoryTesting": [
+            "SWIFT_VERSION": "6.0",
+        ],
+    ]
 )
 #endif
 
@@ -19,5 +28,6 @@ let package = Package(
     dependencies: [
         .package(url: "git@github.com:hmlongco/Factory.git", from: "2.5.0"),
         .package(url: "git@github.com:TelemetryDeck/SwiftClient.git", from: "2.6.0"),
+        .package(url: "git@github.com:nalexn/ViewInspector.git", exact: "0.10.2"),
     ],
 )

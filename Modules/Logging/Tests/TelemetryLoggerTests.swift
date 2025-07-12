@@ -4,7 +4,7 @@
 import Synchronization
 import XCTest
 
-import TelemetryClient
+import TelemetryDeck
 
 @testable import ICBLogging
 

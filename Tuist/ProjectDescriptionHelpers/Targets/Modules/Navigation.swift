@@ -4,11 +4,17 @@ public enum Navigation {
     public static let target = Target.moduleTarget(
         name: "Navigation",
         dependencies: [
-            .external(name: "FactoryKit"),
+            .external(FactoryKit.target),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
+        name: "Navigation",
+        dependencies: [
+        ]
+    )
+
+    public static let doublesTarget = Target.moduleDoublesTarget(
         name: "Navigation",
         dependencies: [
         ]

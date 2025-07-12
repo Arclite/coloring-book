@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-public enum Route {
+public enum Route: Sendable {
     case prompt
     case loading
     case drawing(Image)

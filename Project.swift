@@ -13,6 +13,7 @@ let project = Project(
         DrawingCanvas.target,
         DrawingView.target,
         ErrorHandling.target,
+        ImageLoading.target,
         Logging.target,
         Navigation.target,
         Networking.target,
@@ -22,6 +23,7 @@ let project = Project(
         // doubles
         ErrorHandling.doublesTarget,
         Logging.doublesTarget,
+        Navigation.doublesTarget,
         Networking.doublesTarget,
         // test helpers
         TestHelpers.target,
@@ -31,6 +33,7 @@ let project = Project(
         DrawingCanvas.testTarget,
         DrawingView.testTarget,
         ErrorHandling.testTarget,
+        ImageLoading.testTarget,
         Logging.testTarget,
         Navigation.testTarget,
         Networking.testTarget,

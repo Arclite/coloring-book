@@ -4,6 +4,7 @@ public enum PromptView {
     public static let target = Target.moduleTarget(
         name: "PromptView",
         dependencies: [
+            .target(ImageLoading.target),
         ]
     )
 

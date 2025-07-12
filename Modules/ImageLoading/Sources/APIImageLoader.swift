@@ -7,19 +7,19 @@ import FactoryKit
 
 import ICBAPI
 
-struct APIImageLoader {
+struct APIImageLoader: ImageLoader {
     @Injected(\.apiClient) private var apiClient
 
     func loadImage(prompt: String) async throws -> Image {
         let data = try await apiClient.requestPage(prompt: prompt)
         guard let image = UIImage(data: data).map(Image.init) else {
-            throw APIImageLoaderError.cannotDecodeImageData
+            throw Error.cannotDecodeImageData
         }
 
         return image
     }
-}
 
-enum APIImageLoaderError: Error {
-    case cannotDecodeImageData
+    enum Error: Swift.Error {
+        case cannotDecodeImageData
+    }
 }

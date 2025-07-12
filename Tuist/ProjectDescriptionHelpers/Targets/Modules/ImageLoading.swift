@@ -1,22 +1,16 @@
 import ProjectDescription
 
-public enum Networking {
+public enum ImageLoading {
     public static let target = Target.moduleTarget(
-        name: "Networking",
+        name: "ImageLoading",
         dependencies: [
+            .target(API.target),
             .external(FactoryKit.target),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
-        name: "Networking",
-        dependencies: [
-            .target(Networking.doublesTarget),
-        ]
-    )
-
-    public static let doublesTarget = Target.moduleDoublesTarget(
-        name: "Networking",
+        name: "ImageLoading",
         dependencies: [
         ]
     )

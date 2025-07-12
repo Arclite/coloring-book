@@ -6,7 +6,7 @@ public enum API {
         hasResources: true,
         dependencies: [
             .target(Networking.target),
-            .external(name: "FactoryKit"),
+            .external(FactoryKit.target),
         ]
     )
 
