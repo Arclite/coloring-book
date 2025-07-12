@@ -13,4 +13,10 @@ public enum Navigation {
         dependencies: [
         ]
     )
+
+    public static let doublesTarget = Target.moduleDoublesTarget(
+        name: "Navigation",
+        dependencies: [
+        ]
+    )
 }

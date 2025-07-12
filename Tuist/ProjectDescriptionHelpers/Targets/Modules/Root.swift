@@ -16,6 +16,12 @@ public enum Root {
     public static let testTarget = Target.moduleTestTarget(
         name: "Root",
         dependencies: [
+            .target(DrawingView.target),
+            .target(Navigation.doublesTarget),
+            .target(PromptView.target),
+            .external(FactoryKit.target),
+            .external(FactoryKit.testTarget),
+            .external(ViewInspector.target),
         ]
     )
 }

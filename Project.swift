@@ -23,6 +23,7 @@ let project = Project(
         // doubles
         ErrorHandling.doublesTarget,
         Logging.doublesTarget,
+        Navigation.doublesTarget,
         Networking.doublesTarget,
         // test helpers
         TestHelpers.target,
