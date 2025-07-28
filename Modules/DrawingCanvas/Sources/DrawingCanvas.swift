@@ -4,10 +4,10 @@
 @preconcurrency import PencilKit
 import SwiftUI
 
-public struct DrawingCanvas: UIViewRepresentable {
-    private let color: Color
-    public init(color: Color) {
-        self.color = color
+public struct DrawingCanvas<ColorStyle: ShapeStyle>: UIViewRepresentable where ColorStyle.Resolved == Color {
+    private let style: ColorStyle
+    public init(style: ColorStyle) {
+        self.style = style
     }
 
     public func makeUIView(context: Context) -> PKCanvasView {
@@ -15,31 +15,18 @@ public struct DrawingCanvas: UIViewRepresentable {
         canvasView.backgroundColor = UIColor.white.withAlphaComponent(0.001)
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
-        canvasView.tool = Self.tool(for: color, in: context)
-        context.environment.toolPicker.setVisible(true, forFirstResponder: canvasView)
+        canvasView.tool = Self.tool(for: style, in: context)
         return canvasView
     }
 
     public func updateUIView(_ canvasView: PKCanvasView, context: Context) {
-        canvasView.tool = Self.tool(for: color, in: context)
+        canvasView.tool = Self.tool(for: style, in: context)
     }
 
-    private static func tool(for color: Color, in context: Context) -> PKInkingTool {
-        let resolvedColor = color.resolve(in: context.environment)
+    private static func tool(for style: ColorStyle, in context: Context) -> PKInkingTool {
+        let baseColor = style.resolve(in: context.environment)
+        let resolvedColor = baseColor.resolve(in: context.environment)
         let uiColor = UIColor(cgColor: resolvedColor.cgColor)
         return PKInkingTool(ink: PKInk(.crayon, color: uiColor), width: 10)
     }
 }
-
-//struct ToolPickerEnvironmentKey: EnvironmentKey {
-//    static let defaultValue = PKToolPicker()
-//}
-//
-extension EnvironmentValues {
-    @Entry var toolPicker = PKToolPicker()
-//    var toolPicker: PKToolPicker {
-//        get { self[ToolPickerEnvironmentKey.self] }
-//        set { self[ToolPickerEnvironmentKey.self] = newValue }
-//    }
-}
-//

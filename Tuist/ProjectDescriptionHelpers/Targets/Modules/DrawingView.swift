@@ -6,9 +6,9 @@ public enum DrawingView {
         hasResources: true,
         dependencies: [
             .target(API.target),
+            .target(ColorPicker.target),
             .target(DrawingCanvas.target),
             .target(Navigation.target),
-            .target(ToolPicker.target),
             .external(FactoryKit.target),
         ]
     )

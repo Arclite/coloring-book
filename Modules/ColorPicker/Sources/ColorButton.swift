@@ -3,10 +3,12 @@
 
 import SwiftUI
 
+import ICBColorHandling
+
 struct ColorButton: View {
-    private let color: Color
-    @Binding private var selectedColor: Color
-    init(color: Color, selectedColor: Binding<Color>) {
+    private let color: DrawingColor
+    @Binding private var selectedColor: DrawingColor
+    init(color: DrawingColor, selectedColor: Binding<DrawingColor>) {
         self.color = color
         _selectedColor = selectedColor
     }
