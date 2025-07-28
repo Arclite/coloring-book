@@ -3,11 +3,13 @@
 
 import SwiftUI
 
-public struct ToolPicker: View {
-    @Binding private(set) var selectedColor: SwiftUI.Color
+import ICBColorHandling
+
+public struct ColorPicker: View {
+    @Binding private(set) var selectedColor: DrawingColor
     private let layout: Layout
     public init(
-        selectedColor: Binding<SwiftUI.Color>,
+        selectedColor: Binding<DrawingColor>,
         layout: Layout
     ) {
         _selectedColor = selectedColor
@@ -16,9 +18,9 @@ public struct ToolPicker: View {
 
     public var body: some View {
         let colors: () -> some View = {
-             ForEach(Self.colors) {
+            ForEach(DrawingColor.allColors) {
                 ColorButton(
-                    color: $0.color,
+                    color: $0,
                     selectedColor: $selectedColor
                 )
             }
@@ -32,27 +34,7 @@ public struct ToolPicker: View {
         }
     }
 
-    public static let colors: [Color] = [
-        .init(color: .red),
-        .init(color: .orange),
-        .init(color: .yellow),
-        .init(color: .green),
-        .init(color: .blue),
-        .init(color: .purple),
-        .init(color: .brown),
-        .init(color: .black),
-    ]
-
     public enum Layout {
         case horizontal, vertical
-    }
-
-    public struct Color: Identifiable {
-        let color: SwiftUI.Color
-        init(color: SwiftUI.Color) {
-            self.color = color
-        }
-
-        public var id: String { color.description }
     }
 }

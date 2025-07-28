@@ -5,12 +5,12 @@ import SwiftUI
 
 import ICBDrawingCanvas
 
-struct Artboard: View {
+struct Artboard<ColorStyle: ShapeStyle>: View where ColorStyle.Resolved == Color {
     private let image: Image
-    private let color: Color
-    init(image: Image, color: Color) {
+    private let style: ColorStyle
+    init(image: Image, style: ColorStyle) {
         self.image = image
-        self.color = color
+        self.style = style
     }
 
     var body: some View {
@@ -18,7 +18,7 @@ struct Artboard: View {
             .resizable()
             .aspectRatio(1, contentMode: .fit)
             .overlay {
-                DrawingCanvas(color: color)
+                DrawingCanvas(style: style)
             }
     }
 }

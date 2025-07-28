@@ -10,6 +10,8 @@ let project = Project(
         App.target,
         // modules
         API.target,
+        ColorHandling.target,
+        ColorPicker.target,
         DrawingCanvas.target,
         DrawingView.target,
         ErrorHandling.target,
@@ -19,7 +21,6 @@ let project = Project(
         Networking.target,
         PromptView.target,
         Root.target,
-        ToolPicker.target,
         // doubles
         ErrorHandling.doublesTarget,
         Logging.doublesTarget,
@@ -30,6 +31,8 @@ let project = Project(
         TestHelpers.interfaceTarget,
         // tests
         API.testTarget,
+        ColorHandling.testTarget,
+        ColorPicker.testTarget,
         DrawingCanvas.testTarget,
         DrawingView.testTarget,
         ErrorHandling.testTarget,
@@ -39,7 +42,6 @@ let project = Project(
         Networking.testTarget,
         PromptView.testTarget,
         Root.testTarget,
-        ToolPicker.testTarget,
     ],
     schemes: [
         .scheme(

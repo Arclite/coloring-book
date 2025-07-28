@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-import ICBToolPicker
+import ICBColorHandling
 
 public struct DrawingView: View {
     private let image: Image
@@ -13,7 +13,7 @@ public struct DrawingView: View {
 
     static let padding: CGFloat = 44
 
-    @State private var selectedColor: Color = .purple
+    @State private var selectedColor = DrawingColor.allColors[0]
     public var body: some View {
         VStack {
             HStack {

@@ -1,14 +1,15 @@
 import ProjectDescription
 
-public enum ToolPicker {
+public enum ColorPicker {
     public static let target = Target.moduleTarget(
-        name: "ToolPicker",
+        name: "ColorPicker",
         dependencies: [
+            .target(ColorHandling.target),
         ]
     )
 
     public static let testTarget = Target.moduleTestTarget(
-        name: "ToolPicker",
+        name: "ColorPicker",
         dependencies: [
         ]
     )
