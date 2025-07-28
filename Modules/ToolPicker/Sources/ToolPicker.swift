@@ -15,21 +15,20 @@ public struct ToolPicker: View {
     }
 
     public var body: some View {
+        let colors: () -> some View = {
+             ForEach(Self.colors) {
+                ColorButton(
+                    color: $0.color,
+                    selectedColor: $selectedColor
+                )
+            }
+        }
+
         switch layout {
         case .horizontal:
             HStack(spacing: 4, content: colors)
         case .vertical:
             VStack(spacing: 4, content: colors)
-        }
-    }
-
-    @ViewBuilder
-    private func colors() -> some View {
-        ForEach(Self.colors) {
-            ColorButton(
-                color: $0.color,
-                selectedColor: $selectedColor
-            )
         }
     }
 

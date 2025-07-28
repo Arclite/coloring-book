@@ -23,7 +23,6 @@ extension Target {
                     "DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER": false,
                     "ENABLE_MODULE_VERIFIER": true,
                     "MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS": ["gnu11", "gnu++14"],
-                    "SWIFT_VERSION": (usesMaxSwiftVersion ? "$(SWIFT_MAX_VERSION)" : "$(inherited)"),
                 ]
             )
         )
@@ -43,12 +42,7 @@ extension Target {
             resources: hasResources ? ["Modules/\(name)/TestResources/**"] : nil,
             dependencies: [
                 .target(name: Self.prefix + name),
-            ] + dependencies,
-            settings: .settings(
-                base: [
-                    "SWIFT_VERSION": "$(SWIFT_MAX_VERSION)",
-                ]
-            )
+            ] + dependencies
         )
     }
 
@@ -68,12 +62,12 @@ extension Target {
             ] + dependencies,
             settings: .settings(
                 base: [
+                    "CODE_SIGN_IDENTITY": "",
                     "DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER": false,
-                    "SWIFT_VERSION": "$(SWIFT_MAX_VERSION)",
+                    "ENABLE_MODULE_VERIFIER": true,
+                    "MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS": ["gnu11", "gnu++14"],
                 ],
-                defaultSettings: .recommended(excluding: [
-                    "CODE_SIGN_IDENTITY",
-                ])
+                defaultSettings: .recommended()
             )
         )
     }

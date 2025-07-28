@@ -5,6 +5,7 @@ public enum PromptView {
         name: "PromptView",
         dependencies: [
             .target(ImageLoading.target),
+            .target(Navigation.target),
         ]
     )
 

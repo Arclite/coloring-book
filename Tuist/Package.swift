@@ -13,12 +13,11 @@ let packageSettings = PackageSettings(
     ],
     baseSettings: Shared.settings,
     targetSettings: [
-        "FactoryKit": [
-            "SWIFT_VERSION": "6.0",
-        ],
-        "FactoryTesting": [
-            "SWIFT_VERSION": "6.0",
-        ],
+        "FactoryKit": Shared.settings,
+        "FactoryTesting": Shared.settings,
+        "TelemetryClient": Shared.settings,
+        "TelemetryDeck": Shared.settings,
+        "ViewInspector": Shared.settings(swiftVersion: "5.0"),
     ]
 )
 #endif
