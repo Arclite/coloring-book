@@ -17,7 +17,7 @@ struct RGBTests {
         expectedGreen: Double,
         expectedBlue: Double
     ) {
-        let rgb = RGB(hex: value)
+        let rgb = RGB(value)
         #expect(abs(rgb.red - expectedRed) <= 0.001)
         #expect(abs(rgb.green - expectedGreen) < 0.001)
         #expect(abs(rgb.blue - expectedBlue) < 0.001)
