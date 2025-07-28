@@ -21,13 +21,16 @@ public enum App {
         ],
         settings: .settings(
             base: [
+                "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "Accent Color",
                 "DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER": "NO",
                 "TARGETED_DEVICE_FAMILY": "2",
             ],
             debug: [
+                "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
                 "PROVISIONING_PROFILE_SPECIFIER": "match Development \(Shared.bundleID)",
                 "ENABLE_DEBUG_DYLIB": true,
             ], release: [
+                "CODE_SIGN_IDENTITY": "Apple Distribution",
                 "PROVISIONING_PROFILE_SPECIFIER": "match AppStore \(Shared.bundleID)",
             ],
             defaultSettings: .recommended(excluding: [

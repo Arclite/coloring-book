@@ -17,9 +17,9 @@ public struct ToolPicker: View {
     public var body: some View {
         switch layout {
         case .horizontal:
-            HStack(spacing: 4, content: colors)
+            HStack(spacing: 4, content: { colors() })
         case .vertical:
-            VStack(spacing: 4, content: colors)
+            VStack(spacing: 4, content: { colors() })
         }
     }
 
