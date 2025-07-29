@@ -1,0 +1,8 @@
+// Title for the button to start a prompt
+"PromptButton.title" = "Make it!";
+
+// Placeholder for the text field to enter a prompt
+"PromptField.placeholder" = "Prompt";
+
+// Text in the header of the prompt view
+"Header.text" = "What would you like to color?";

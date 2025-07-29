@@ -16,7 +16,7 @@ struct CloseButton: View {
             Image(systemName: "xmark")
         }
         .accessibilityLabel(
-            ICBDrawingViewStrings.CloseButton.accesibilityLabel
+            Strings.CloseButton.accesibilityLabel
         )
     }
 }

@@ -24,6 +24,7 @@ let project = Project(
         Root.target,
         // doubles
         ErrorHandling.doublesTarget,
+        ImageLoading.doublesTarget,
         Logging.doublesTarget,
         Navigation.doublesTarget,
         Networking.doublesTarget,
