@@ -20,7 +20,7 @@ struct ColorButton: View {
             if isSelected {
                 ZStack {
                     Circle()
-                        .inset(by: 10)
+                        .inset(by: 8)
                         .fill(color)
                     Circle()
                         .stroke(color, lineWidth: 5)

@@ -3,6 +3,7 @@
 
 import SwiftUI
 
+import ICBDesignSystem
 import ICBDrawingCanvas
 
 struct Artboard<ColorStyle: ShapeStyle>: View where ColorStyle.Resolved == Color {
@@ -20,5 +21,7 @@ struct Artboard<ColorStyle: ShapeStyle>: View where ColorStyle.Resolved == Color
             .overlay {
                 DrawingCanvas(style: style)
             }
+            .clipShape(RoundedRectangle(cornerRadius: 11))
+            .shadow(color: .canvasShadow, radius: 20)
     }
 }
