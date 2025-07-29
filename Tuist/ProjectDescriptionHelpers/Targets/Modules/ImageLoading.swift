@@ -14,4 +14,10 @@ public enum ImageLoading {
         dependencies: [
         ]
     )
+
+    public static let doublesTarget = Target.moduleDoublesTarget(
+        name: "ImageLoading",
+        dependencies: [
+        ]
+    )
 }

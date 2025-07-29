@@ -42,6 +42,8 @@ extension Target {
             resources: hasResources ? ["Modules/\(name)/TestResources/**"] : nil,
             dependencies: [
                 .target(name: Self.prefix + name),
+                .target(TestHelpers.interfaceTarget),
+                .target(TestHelpers.target),
             ] + dependencies
         )
     }

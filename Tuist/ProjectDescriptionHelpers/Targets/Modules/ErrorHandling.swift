@@ -14,7 +14,6 @@ public enum ErrorHandling {
         name: "ErrorHandling",
         dependencies: [
             .target(ErrorHandling.doublesTarget),
-            .target(TestHelpers.target),
         ]
     )
 
