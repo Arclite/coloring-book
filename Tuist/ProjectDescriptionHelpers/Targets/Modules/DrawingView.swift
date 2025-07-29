@@ -7,6 +7,7 @@ public enum DrawingView {
         dependencies: [
             .target(API.target),
             .target(ColorPicker.target),
+            .target(DesignSystem.target),
             .target(DrawingCanvas.target),
             .target(Navigation.target),
             .external(FactoryKit.target),
