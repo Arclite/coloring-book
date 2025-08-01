@@ -1,48 +1,57 @@
 //  Created by Geoff Pado on 4/25/25.
 //  Copyright © 2025 Cocoatype, LLC. All rights reserved.
 
+import PencilKit
 import SwiftUI
 
 import ICBColorHandling
 import ICBColorPicker
 import ICBDesignSystem
+import ICBDrawingCanvas
+import ICBImageExport
 
 public struct DrawingView: View {
     private let image: Image
+    @State private var drawing: PKDrawing
+
     public init(image: Image) {
         self.image = image
+        self.drawing = PKDrawing()
     }
 
     static let padding: CGFloat = 0
 
     @State private var selectedColor = DrawingColor.allColors[0]
     public var body: some View {
-        VStack(spacing: 0) {
-            GeometryReader { proxy in
-                let (toolPickerFrame, imageFrame) = layoutFrames(in: proxy.size)
-                let imageWidth = imageFrame.minimumDimension
+        GeometryReader { proxy in
+            let (toolPickerFrame, imageFrame) = layoutFrames(in: proxy.size)
+            let imageWidth = imageFrame.minimumDimension
 
-                Artboard(image: image, style: selectedColor)
-                    .frame(width: imageWidth, height: imageWidth)
-                    .position(
-                        x: imageFrame.midX,
-                        y: imageFrame.midY
-                    )
-
-                ColorPicker(
-                    selectedColor: $selectedColor,
-                    layout: pickerLayout(in: proxy.size)
-                )
-                .frame(
-                    width: toolPickerFrame.width,
-                    height: toolPickerFrame.height
-                )
+            Artboard(image: image, style: selectedColor)
+                .frame(width: imageWidth, height: imageWidth)
                 .position(
-                    x: toolPickerFrame.midX,
-                    y: toolPickerFrame.midY
+                    x: imageFrame.midX,
+                    y: imageFrame.midY
                 )
-            }
-        }.background(Color.background)
+
+            DrawingCanvas(style: selectedColor, drawing: $drawing)
+                .frame(width: proxy.size.width, height: proxy.size.height)
+
+            ImageExportButton(image: image, drawing: drawing)
+
+            ColorPicker(
+                selectedColor: $selectedColor,
+                layout: pickerLayout(in: proxy.size)
+            )
+            .frame(
+                width: toolPickerFrame.width,
+                height: toolPickerFrame.height
+            )
+            .position(
+                x: toolPickerFrame.midX,
+                y: toolPickerFrame.midY
+            )
+        }
     }
 
     private func pickerLayout(in size: CGSize) -> ICBColorPicker.ColorPicker.Layout {

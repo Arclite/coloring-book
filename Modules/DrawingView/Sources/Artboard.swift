@@ -18,10 +18,5 @@ struct Artboard<ColorStyle: ShapeStyle>: View where ColorStyle.Resolved == Color
         image
             .resizable()
             .aspectRatio(1, contentMode: .fit)
-            .overlay {
-                DrawingCanvas(style: style)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 11))
-            .shadow(color: .canvasShadow, radius: 20)
     }
 }

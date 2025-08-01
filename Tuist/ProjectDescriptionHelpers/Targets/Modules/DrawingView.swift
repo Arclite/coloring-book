@@ -9,6 +9,7 @@ public enum DrawingView {
             .target(ColorPicker.target),
             .target(DesignSystem.target),
             .target(DrawingCanvas.target),
+            .target(ImageExport.target),
             .target(Navigation.target),
             .external(FactoryKit.target),
         ]
