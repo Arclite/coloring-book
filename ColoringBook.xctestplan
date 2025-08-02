@@ -70,32 +70,26 @@
           "containerPath" : "container:ColoringBook.xcodeproj",
           "identifier" : "A85860A866BFCBBF44D68A3A",
           "name" : "ICBColorHandling"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "26BE5FFD27221E00478DF4E6",
+          "name" : "ICBDesignSystem"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "48B019834B91EBBBC8373CB6",
+          "name" : "ICBImageExport"
+        },
+        {
+          "containerPath" : "container:ColoringBook.xcodeproj",
+          "identifier" : "978BE417566F26A485026EAD",
+          "name" : "ICBDrawingLayout"
         }
       ]
     }
   },
   "testTargets" : [
-    {
-      "target" : {
-        "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "05012363C815B165D18FFB7D",
-        "name" : "ICBImageLoadingTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "DDB3A3FCB637F19A41BD5A6F",
-        "name" : "ICBAPITests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "3D1153AFC0D31AEE7BF25EE1",
-        "name" : "ICBNetworkingTests"
-      }
-    },
     {
       "target" : {
         "containerPath" : "container:ColoringBook.xcodeproj",
@@ -106,43 +100,8 @@
     {
       "target" : {
         "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "88087B8410549054CB6E368B",
-        "name" : "ICBColorPickerTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "959CFACB299164ABD238EA81",
-        "name" : "ICBNavigationTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "6674AAC8A1E241CA2CD49185",
-        "name" : "ICBLoggingTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "A6B4E01EAA4992DF92E875BB",
-        "name" : "ICBDrawingViewTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "14B4C487063610009A0B314F",
-        "name" : "ICBErrorHandlingTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "A641069C68DF5463FD7D47A4",
-        "name" : "ICBColorHandlingTests"
+        "identifier" : "72BFDAC443176835AC6021E6",
+        "name" : "ICBPromptViewTests"
       }
     },
     {
@@ -155,8 +114,85 @@
     {
       "target" : {
         "containerPath" : "container:ColoringBook.xcodeproj",
-        "identifier" : "72BFDAC443176835AC6021E6",
-        "name" : "ICBPromptViewTests"
+        "identifier" : "068D32FDB5329567442A67BE",
+        "name" : "ICBImageExportTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "95FACBE68E9F2A63B7778BD8",
+        "name" : "ICBDesignSystemTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "88087B8410549054CB6E368B",
+        "name" : "ICBColorPickerTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "05012363C815B165D18FFB7D",
+        "name" : "ICBImageLoadingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "9973E2FCEF8E99A1AF422620",
+        "name" : "ICBDrawingLayoutTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "3D1153AFC0D31AEE7BF25EE1",
+        "name" : "ICBNetworkingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "DDB3A3FCB637F19A41BD5A6F",
+        "name" : "ICBAPITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "6674AAC8A1E241CA2CD49185",
+        "name" : "ICBLoggingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "A641069C68DF5463FD7D47A4",
+        "name" : "ICBColorHandlingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "14B4C487063610009A0B314F",
+        "name" : "ICBErrorHandlingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "959CFACB299164ABD238EA81",
+        "name" : "ICBNavigationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ColoringBook.xcodeproj",
+        "identifier" : "A6B4E01EAA4992DF92E875BB",
+        "name" : "ICBDrawingViewTests"
       }
     }
   ],

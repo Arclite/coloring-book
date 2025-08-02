@@ -18,11 +18,15 @@ public struct DrawingCanvas<ColorStyle: ShapeStyle>: UIViewRepresentable where C
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
         canvasView.tool = Self.tool(for: style, in: context)
+        canvasView.delegate = context.coordinator
         return canvasView
     }
 
     public func updateUIView(_ canvasView: PKCanvasView, context: Context) {
+        canvasView.delegate = context.coordinator
+        context.coordinator.ignoreCanvasChanges = true
         canvasView.drawing = drawing
+        context.coordinator.ignoreCanvasChanges = false
         canvasView.tool = Self.tool(for: style, in: context)
     }
 
@@ -43,7 +47,9 @@ public struct DrawingCanvas<ColorStyle: ShapeStyle>: UIViewRepresentable where C
             self.drawingCanvas = drawingCanvas
         }
 
+        var ignoreCanvasChanges = false
         public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+            guard ignoreCanvasChanges == false else { return }
             drawingCanvas.drawing = canvasView.drawing
         }
     }
