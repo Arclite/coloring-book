@@ -8,6 +8,7 @@ public enum PromptView {
         dependencies: [
             .target(ImageLoading.target),
             .target(Navigation.target),
+            .external(FactoryKit.target),
         ]
     )
 

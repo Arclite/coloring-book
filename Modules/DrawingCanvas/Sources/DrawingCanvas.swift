@@ -6,8 +6,10 @@ import SwiftUI
 
 public struct DrawingCanvas<ColorStyle: ShapeStyle>: UIViewRepresentable where ColorStyle.Resolved == Color {
     private let style: ColorStyle
-    public init(style: ColorStyle) {
+    @Binding private var drawing: PKDrawing
+    public init(style: ColorStyle, drawing: Binding<PKDrawing>) {
         self.style = style
+        _drawing = drawing
     }
 
     public func makeUIView(context: Context) -> PKCanvasView {
@@ -16,10 +18,15 @@ public struct DrawingCanvas<ColorStyle: ShapeStyle>: UIViewRepresentable where C
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
         canvasView.tool = Self.tool(for: style, in: context)
+        canvasView.delegate = context.coordinator
         return canvasView
     }
 
     public func updateUIView(_ canvasView: PKCanvasView, context: Context) {
+        canvasView.delegate = context.coordinator
+        context.coordinator.ignoreCanvasChanges = true
+        canvasView.drawing = drawing
+        context.coordinator.ignoreCanvasChanges = false
         canvasView.tool = Self.tool(for: style, in: context)
     }
 
@@ -28,5 +35,22 @@ public struct DrawingCanvas<ColorStyle: ShapeStyle>: UIViewRepresentable where C
         let resolvedColor = baseColor.resolve(in: context.environment)
         let uiColor = UIColor(cgColor: resolvedColor.cgColor)
         return PKInkingTool(ink: PKInk(.crayon, color: uiColor), width: 10)
+    }
+
+    public func makeCoordinator() -> Coordinator {
+        Coordinator(drawingCanvas: self)
+    }
+
+    public class Coordinator: NSObject, PKCanvasViewDelegate {
+        private let drawingCanvas: DrawingCanvas
+        init(drawingCanvas: DrawingCanvas) {
+            self.drawingCanvas = drawingCanvas
+        }
+
+        var ignoreCanvasChanges = false
+        public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+            guard ignoreCanvasChanges == false else { return }
+            drawingCanvas.drawing = canvasView.drawing
+        }
     }
 }
