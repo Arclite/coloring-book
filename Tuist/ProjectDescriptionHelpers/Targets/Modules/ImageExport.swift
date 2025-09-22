@@ -5,6 +5,7 @@ public enum ImageExport {
         name: "ImageExport",
         hasResources: true,
         dependencies: [
+            .target(DrawingLayout.target),
         ]
     )
 
