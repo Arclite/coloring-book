@@ -24,10 +24,13 @@ public struct DrawingCanvas<ColorStyle: ShapeStyle>: UIViewRepresentable where C
 
     public func updateUIView(_ canvasView: PKCanvasView, context: Context) {
         canvasView.delegate = context.coordinator
-        context.coordinator.ignoreCanvasChanges = true
-        canvasView.drawing = drawing
-        context.coordinator.ignoreCanvasChanges = false
         canvasView.tool = Self.tool(for: style, in: context)
+
+        if canvasView.drawing != drawing {
+            context.coordinator.ignoreCanvasChanges = true
+            canvasView.drawing = drawing
+            context.coordinator.ignoreCanvasChanges = false
+        }
     }
 
     private static func tool(for style: ColorStyle, in context: Context) -> PKInkingTool {
