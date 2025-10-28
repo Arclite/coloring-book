@@ -4,7 +4,6 @@
 import SwiftUI
 
 import ICBDesignSystem
-import ICBDrawingCanvas
 
 struct Artboard: View {
     private let image: Image

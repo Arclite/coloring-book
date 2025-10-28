@@ -39,7 +39,15 @@ public struct DrawingView: View {
                 )
 
             DrawingCanvas(style: selectedColor, drawing: $drawing)
-                .frame(width: proxy.size.width, height: proxy.size.height)
+                .border(Color.red, width: 5)
+                .frame(
+                    width: layout.imageFrame.width,
+                    height: layout.imageFrame.height
+                )
+                .position(
+                    x: layout.imageFrame.midX,
+                    y: layout.imageFrame.midY
+                )
 
             ImageExportButton(size: proxy.size, image: image, drawing: drawing)
 
@@ -47,6 +55,7 @@ public struct DrawingView: View {
                 selectedColor: $selectedColor,
                 layout: pickerLayout(in: proxy.size)
             )
+            .border(Color.blue)
             .frame(
                 width: layout.toolFrame.width,
                 height: layout.toolFrame.height

@@ -16,7 +16,7 @@ public struct DrawingLayoutCalculator {
 
         let insetRect = parentRect.insetBy(dx: 44, dy: 11)
         let colorsCount = CGFloat(DrawingColor.allColors.count)
-        let toolPickerDimension = insetRect.maximumDimension / colorsCount
+        let toolPickerDimension = insetRect.minimumDimension / colorsCount
         let edge: CGRectEdge = (insetRect.size.height > insetRect.size.width) ? .maxYEdge : .minXEdge
 
         let (toolFrame, imageContainerFrame) = insetRect.divided(atDistance: toolPickerDimension, from: edge)
