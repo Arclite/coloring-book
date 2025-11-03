@@ -44,6 +44,7 @@ public struct DrawingView: View {
                     x: layout.imageFrame.midX,
                     y: layout.imageFrame.midY
                 )
+                .shadow(radius: 16, y: 4)
 
             DrawingCanvas(style: selectedColor, drawing: $drawing)
                 .frame(
@@ -54,7 +55,6 @@ public struct DrawingView: View {
                     x: layout.imageFrame.midX,
                     y: layout.imageFrame.midY
                 )
-                .shadow(radius: 16, y: 4)
 
             ImageExportButton(size: proxy.size, image: image, drawing: drawing)
 
@@ -62,7 +62,6 @@ public struct DrawingView: View {
                 selectedColor: $selectedColor,
                 layout: pickerLayout(in: proxy.size)
             )
-            .border(Color.blue)
             .frame(
                 width: layout.toolFrame.width,
                 height: layout.toolFrame.height

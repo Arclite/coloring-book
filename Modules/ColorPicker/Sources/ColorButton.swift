@@ -8,7 +8,10 @@ import ICBColorHandling
 struct ColorButton: View {
     private let color: DrawingColor
     @Binding private var selectedColor: DrawingColor
-    init(color: DrawingColor, selectedColor: Binding<DrawingColor>) {
+    init(
+        color: DrawingColor,
+        selectedColor: Binding<DrawingColor>
+    ) {
         self.color = color
         _selectedColor = selectedColor
     }
@@ -17,18 +20,8 @@ struct ColorButton: View {
         Button {
             selectedColor = color
         } label: {
-            if isSelected {
-                ZStack {
-                    Circle()
-                        .inset(by: 8)
-                        .fill(color)
-                    Circle()
-                        .stroke(color, lineWidth: 5)
-                }
-            } else {
-                Circle()
-                    .fill(color)
-            }
+            Crayon(color: color.baseColor)
+                .offset(x: isSelected ? -60 : -100, y: 0)
         }
     }
 
