@@ -28,6 +28,13 @@ public struct DrawingView: View {
             let layout = DrawingLayoutCalculator()
                 .layout(in: proxy.size)
 
+            Asset.wood.swiftUIImage
+                .resizable(resizingMode: .tile)
+                .frame(
+                    width: proxy.size.width,
+                    height: proxy.size.height,
+                )
+
             Artboard(image: image)
                 .frame(
                     width: layout.imageFrame.width,
@@ -39,7 +46,6 @@ public struct DrawingView: View {
                 )
 
             DrawingCanvas(style: selectedColor, drawing: $drawing)
-                .border(Color.red, width: 5)
                 .frame(
                     width: layout.imageFrame.width,
                     height: layout.imageFrame.height
@@ -48,6 +54,7 @@ public struct DrawingView: View {
                     x: layout.imageFrame.midX,
                     y: layout.imageFrame.midY
                 )
+                .shadow(radius: 16, y: 4)
 
             ImageExportButton(size: proxy.size, image: image, drawing: drawing)
 
@@ -64,7 +71,7 @@ public struct DrawingView: View {
                 x: layout.toolFrame.midX,
                 y: layout.toolFrame.midY
             )
-        }
+        }.ignoresSafeArea()
     }
 
     private func pickerLayout(in size: CGSize) -> ICBColorPicker.ColorPicker.Layout {
@@ -74,5 +81,5 @@ public struct DrawingView: View {
 
 import ICBAPI
 #Preview {
-    DrawingView(image: Asset.sample.swiftUIImage)
+    DrawingView(image: ICBAPI.Asset.sample.swiftUIImage)
 }
